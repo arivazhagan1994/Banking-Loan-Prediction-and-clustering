@@ -83,3 +83,60 @@ This project successfully developed and evaluated an XGBoost model for loan risk
 - Investigate imbalanced data handling techniques further.
 - Develop a user interface for making predictions on new data.
 - Incorporate model explainability techniques (e.g., SHAP values) for better understanding of predictions.
+
+
+# Bank Transaction Analysis and Customer Segmentation
+
+## Project Overview
+
+This project analyzes bank transaction data to understand customer behavior and identify potential customer segments using clustering techniques. The goal is to provide insights that can inform targeted business strategies.
+
+## Dataset
+
+The analysis is based on the `bank_transactions.csv` dataset, which contains information about bank transactions, including customer details, transaction amounts, and dates.
+
+## Analysis Steps
+
+The project involved the following key steps:
+
+1.  **Data Loading and Understanding:** Loading the dataset and performing initial exploration to understand its structure and identify missing values.
+2.  **Data Preprocessing:** Handling missing values, converting data types, calculating customer age from date of birth, and removing outliers.
+3.  **Feature Engineering:** Creating new features such as 'CustomerAge' and 'Zone' based on customer location.
+4.  **Categorical Data Encoding:** Converting categorical features ('CustGender' and 'Zone') into numerical representations using Label Encoding and One-Hot Encoding.
+5.  **Exploratory Data Analysis (EDA):** Analyzing the distribution of numerical features, checking for skewness, and examining correlations between features.
+6.  **Dimensionality Reduction:** Applying Principal Component Analysis (PCA) to reduce the dimensionality of the data for visualization.
+7.  **Clustering:** Using K-Means clustering to group customers into segments based on their characteristics. The optimal number of clusters was determined using the Elbow Method and Silhouette Score.
+8.  **Visualization:** Visualizing the clusters in a 2D space using the results of PCA.
+
+## Key Findings (Based on the provided analysis)
+
+*   Missing values in `CustGender`, `CustLocation`, and `CustAccountBalance` were handled.
+*   Invalid and underage customer entries based on `CustomerDOB` were removed.
+*   Outliers in numerical features were addressed using the IQR method.
+*   The analysis identified 2 customer clusters using K-Means, although the clusters were not distinctly separated in the 2D PCA visualization.
+
+## Potential Next Steps
+
+*   Explore other clustering algorithms (e.g., DBSCAN, Hierarchical Clustering) to potentially identify different or more clearly defined clusters.
+*   Perform a detailed analysis of the characteristics of the identified clusters to understand the profiles of each customer segment.
+*   Consider using t-SNE for visualizing the clusters, as it can sometimes reveal non-linear relationships better than PCA.
+*   Translate the clustering insights into actionable business strategies.
+
+## How to Run the Code
+
+1.  Ensure you have the `bank_transactions.csv` file available and update the `file_path` variable in the notebook to point to the correct location.
+2.  Run the cells sequentially in the provided Jupyter/Colab notebook.
+
+## Dependencies
+
+The following libraries are required to run the notebook:
+
+*   pandas
+*   numpy
+*   datetime
+*   sklearn
+*   matplotlib
+*   seaborn
+*   rapidfuzz
+*   tqdm
+*   scipy
